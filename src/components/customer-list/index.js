@@ -1,19 +1,30 @@
-import React  from "react";
-import "./index.css";
+import React from 'react';
+
+import AddCustomer from '../add-customer';
+import './index.css';
 
 function CustomerList() {
+  const [list, setList] = React.useState([]);
+
   return (
     <div className="mt-75 layout-column justify-content-center align-items-center">
       <section className="layout-row align-items-center justify-content-center">
-        <input type="text" className="large" placeholder="Name" data-testid="app-input"/>
-        <button type="submit" className="ml-30" data-testid="submit-button">Add Customer</button>
+        {/* abtract input logic to AddCustomer component in order to prevent 
+            unnecessary rendering of CustomerList component*/}
+        <AddCustomer addCustomer={setList} />
       </section>
 
-      <ul className="styled mt-50" data-testid="customer-list">
-          <li className="slide-up-fade-in" data-testid="list-item1" key="list-item1" >Customer</li>
-      </ul>
+      {list.length > 0 && (
+        <ul className="styled mt-50" data-testid="customer-list">
+          {list.map(({ id, name }, i) => (
+            <li key={id} className="slide-up-fade-in" data-testid={`list-item${i}`}>
+              {name}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
 
-export default CustomerList
+export default CustomerList;
