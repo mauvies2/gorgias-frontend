@@ -31,7 +31,7 @@ const AddCustomer = ({ addCustomer }) => {
         autoFocus
       />
       <button type="submit" className="button ml-30" data-testid="submit-button" onClick={handleSubmit}>
-        Add customer
+        Add Customer
       </button>
     </form>
   );

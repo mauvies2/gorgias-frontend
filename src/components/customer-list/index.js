@@ -9,8 +9,6 @@ function CustomerList() {
   return (
     <div className="mt-75 layout-column justify-content-center align-items-center">
       <section className="layout-row align-items-center justify-content-center">
-        {/* abtract input logic to AddCustomer component in order to prevent 
-            unnecessary rendering of CustomerList component*/}
         <AddCustomer addCustomer={setList} />
       </section>
 
